@@ -77,6 +77,10 @@ button:active{
     color: darkred;
     margin: .3rem;
 }
+.probalkozasok{
+    margin: 1 auto;
+    text-align: center;
+}
 /*--------------------------------*/
 .eredmeny{
     text-align: center;

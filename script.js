@@ -1,12 +1,12 @@
 
-var newRandomNumber
+var newRandomNumber;
 var randomNumber = Math.floor(Math.random() * 100) + 1;
 var bekuldSzam;
 var tartalomMegjelent = false;
+var clickCount = 0;
+var hozzaadas;
 
 document.getElementById('randomNumber').textContent = randomNumber;
-
-//-----------------------------------------------------------------------
 
 function start() {
     if (!tartalomMegjelent) {
@@ -36,6 +36,7 @@ function start() {
 
         // Gomb létrehozása
         var gomb1 = document.createElement('button');
+        gomb1.id = 'tippbekuldes';
         gomb1.className = 'start-gomb';
         gomb1.textContent = 'Tipp beküldése';
         gomb1.onclick = function() {
@@ -56,6 +57,11 @@ function start() {
         vegeredmenyP.id = 'vegeredmeny';
         vegeredmenyP.className = 'vegeredmeny';
 
+        hozzaadas = document.createElement('p');
+        hozzaadas.id = 'probalkozasok';
+        hozzaadas.className = 'probalkozasok';
+        hozzaadas.textContent = 'Próbálkozások száma: ';
+
         // Gomb létrehozása
         var gomb2 = document.createElement('button');
         gomb2.className = 'start-gomb';
@@ -72,15 +78,20 @@ function start() {
         document.body.appendChild(szekcio);
         document.body.appendChild(gomb1);
         document.body.appendChild(eredmenyDiv);
+        document.body.appendChild(hozzaadas);
         document.body.appendChild(gomb2);
 
         tartalomMegjelent = true;
     }
 }
 
-//------------------------------------------------------------------
-
 function tippBekuldes() {
+    // Kattintás esetén növeljük a számlálót
+    clickCount++;
+    hozzaadas.innerHTML = 'Próbálkozások száma: ';
+    hozzaadas.innerHTML += `${clickCount}`;
+    //console.log(clickCount);
+
     var input = document.getElementById('mezo_1');
 
     var inputValue = input.value;
@@ -113,7 +124,6 @@ function tippBekuldes() {
 
         // 5 másodperc után eltávolítja a pulzáló animációt
         setTimeout(disablePulsating, 5000);
-
     } else if (randomNumber > bekuldSzam) {
         //console.log('Kissebb');
         document.getElementById('vegeredmeny').textContent = `Kissebb`;
@@ -125,27 +135,27 @@ function tippBekuldes() {
     }
 }
 
-//------------------------------------------------------------------
-
 function reset() {
-    document.getElementById('randomNumber').style.visibility = 'hidden';    
+    document.getElementById('randomNumber').style.visibility = 'hidden';
     document.getElementById('vegeredmeny').textContent = ``;
 
-    if ( randomNumber !== bekuldSzam ) {
+    if (randomNumber !== bekuldSzam) {
         const form = document.getElementById('form');
         form.reset();
-    } else {        
+    } else {
         const form = document.getElementById('form');
         form.reset();
 
-        let newRandomNumber = Math.floor(Math.random() * 100) + 1;
+        newRandomNumber = Math.floor(Math.random() * 100) + 1;
         // Addig generál új számot, amíg az nem lesz különböző az előzőtől
         while (newRandomNumber === randomNumber) {
             newRandomNumber = Math.floor(Math.random() * 100) + 1;
         }
         document.getElementById('randomNumber').textContent = newRandomNumber;
         randomNumber = newRandomNumber;
-    }
-    //console.log(randomNumber)
-}
 
+        hozzaadas.innerHTML = 'Próbálkozások száma: ';
+        clickCount = 0
+    }
+    //console.log(randomNumber);
+}
