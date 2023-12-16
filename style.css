@@ -1,0 +1,106 @@
+
+body{
+    background-color: darkgray;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.adat-section{
+    margin: 2rem auto;
+    width: 80%;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.adat-p{
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    width: 60%;
+}
+
+.adat-szam{
+    margin: 0.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    visibility: hidden;
+    background-color: lightgreen;
+}
+
+/*-----------------------*/
+.start-gomb{
+    display: block;
+    margin: 1.5rem auto;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: lightgreen;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 0 0 2px whitesmoke;
+    transition-duration: 0.2s;
+}
+.start-gomb:hover{
+    background-color: darkgreen;
+    color: whitesmoke;
+    text-shadow: 0 0 2px black;
+    transition-duration: 0.4s;
+}
+button:active{
+    transform: scale(0.9);
+}
+/*----------------------------------*/
+.input-number{
+    text-align: center;
+    height: 50px;
+}
+.input-mezo{
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    width: 65px;
+    text-align: center;
+}
+.nem-szam{
+    color: darkred;
+    margin: .3rem;
+}
+/*--------------------------------*/
+.eredmeny{
+    text-align: center;
+    height: 120px;
+}
+.eredmeny-p{
+    font-size: 2rem;
+}
+.vegeredmeny{
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 0 0 3px black ;
+}
+.pulzal{
+    animation: pulsate 1s infinite;
+}
+@keyframes pulsate {
+    0% {
+        transform: scale(1); /* Az animáció kezdeti állapota (nincs skálázás) */
+    }
+    50% {
+        transform: scale(1.2); /* Az animáció közepénél a szöveg 120%-os méretű lesz */
+    }
+    100% {
+        transform: scale(1); /* Az animáció végénél visszatér a kezdeti méretéhez */
+    }
+}
