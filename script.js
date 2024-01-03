@@ -126,7 +126,7 @@ function tippBekuldes() {
         setTimeout(disablePulsating, 5000);
     } else if (randomNumber > bekuldSzam) {
         //console.log('Kissebb');
-        document.getElementById('vegeredmeny').textContent = `Kissebb`;
+        document.getElementById('vegeredmeny').textContent = `Kisebb`;
         document.getElementById('vegeredmeny').style.color = 'lightsalmon';
     } else if (randomNumber < bekuldSzam) {
         //console.log('Nagyobb');
